@@ -52,7 +52,7 @@ class Analytics:
         """ Ingresa True en caso de ser un año excento de impuestos.
         Devuleve el flujo de fondos en dolares"""
         if(excento): return (self.calculate_saves() - CO)
-        return ((self.saves - CO)*(1+(self.ig/100)))
+        return ((self.saves - CO)*(1-(self.ig/100)))
 
     def calculate_van(self, i):
         """ Ingresa la tasa de interes y devuelve el van"""
@@ -61,4 +61,4 @@ class Analytics:
             aux = aux + (self.calculate_fcf(True)/pow(1+i, x))
         for x in range(self.ne+1, N-self.ne+1):
             aux = aux + (self.calculate_fcf()/pow(1+i, x))
-        return self.io - aux
+        return  - self.io + aux
