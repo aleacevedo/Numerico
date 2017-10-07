@@ -62,3 +62,6 @@ class Analytics:
         for x in range(self.ne+1, N-self.ne+1):
             aux = aux + (self.calculate_fcf()/pow(1+i, x))
         return  - self.io + aux
+
+    def g_van(self,i):
+        return i-self.calculate_van(i)
